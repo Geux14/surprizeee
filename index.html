@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday, Bandaruu 🖤</title>
 
 <style>
@@ -26,32 +27,90 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: radial-gradient(
-    circle at top,
-    #171717 0%,
-    #050505 45%,
-    #000 100%
-  );
+
+  /* JJK-inspired dark cursed-energy background */
+  background:
+    radial-gradient(circle at 20% 20%, rgba(90, 0, 140, 0.30), transparent 30%),
+    radial-gradient(circle at 80% 30%, rgba(0, 55, 130, 0.25), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(100, 0, 170, 0.18), transparent 35%),
+    linear-gradient(135deg, #030305 0%, #07020d 45%, #02040a 100%);
+
   overflow-x: hidden;
 }
 
+/* Floating cursed-energy particles */
 body:before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
-  background-image: radial-gradient(#fff 1px, transparent 1px);
-  background-size: 70px 70px;
-  animation: stars 18s linear infinite;
   z-index: -1;
+
+  background-image:
+    radial-gradient(circle, rgba(180, 100, 255, 0.55) 1px, transparent 2px),
+    radial-gradient(circle, rgba(80, 150, 255, 0.4) 1px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.25) 1px, transparent 2px);
+
+  background-size:
+    120px 120px,
+    170px 170px,
+    90px 90px;
+
+  background-position:
+    0 0,
+    40px 70px,
+    20px 30px;
+
+  opacity: 0.35;
+  animation: cursedEnergy 20s linear infinite;
 }
 
-@keyframes stars {
+@keyframes cursedEnergy {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+
   to {
-    transform: translateY(70px);
+    transform: translateY(-120px) rotate(2deg);
   }
 }
+
+/* Large purple cursed-energy glow */
+.cursed-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(120, 0, 255, 0.16),
+    transparent 70%
+  );
+
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+/* HERO */
 
 .hero {
   min-height: 100vh;
@@ -64,11 +123,17 @@ body:before {
 .hero-card {
   width: min(900px, 100%);
   padding: 55px 25px;
-  border: 1px solid #252525;
+
+  border: 1px solid rgba(160, 90, 255, 0.18);
   border-radius: 30px;
-  background: rgba(10, 10, 10, 0.78);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 60px rgba(255, 255, 255, 0.05);
+
+  background: rgba(7, 7, 10, 0.78);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 0 60px rgba(110, 0, 255, 0.08),
+    inset 0 0 40px rgba(110, 0, 255, 0.03);
 }
 
 .kicker {
@@ -82,21 +147,36 @@ body:before {
   font-size: clamp(46px, 9vw, 96px);
   line-height: 0.95;
   margin: 15px 0 10px;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.16);
+
+  text-shadow:
+    0 0 20px rgba(130, 40, 255, 0.25),
+    0 0 45px rgba(255, 255, 255, 0.12);
 }
 
 .nick {
   font-size: clamp(22px, 4vw, 35px);
   font-weight: 800;
   letter-spacing: 3px;
+
+  text-shadow:
+    0 0 15px rgba(150, 50, 255, 0.35);
 }
 
 .line {
   height: 1px;
   width: min(560px, 85%);
   margin: 28px auto;
-  background: linear-gradient(90deg, transparent, #fff, transparent);
-  opacity: 0.3;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b66cff,
+    #fff,
+    #6d8cff,
+    transparent
+  );
+
+  opacity: 0.5;
 }
 
 .typing {
@@ -116,22 +196,42 @@ body:before {
 }
 
 .btn {
-  border: 1px solid #292929;
-  background: #111;
+  border: 1px solid rgba(170, 90, 255, 0.25);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(70, 20, 110, 0.4),
+      rgba(15, 15, 25, 0.8)
+    );
+
   color: white;
+
   padding: 13px 18px;
   border-radius: 999px;
+
   cursor: pointer;
   text-decoration: none;
   font-size: 15px;
-  transition: 0.2s;
+
+  transition: 0.25s;
 }
 
 .btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  background: #1b1b1b;
-  box-shadow: 0 0 22px rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px) scale(1.03);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(100, 20, 160, 0.55),
+      rgba(20, 20, 35, 0.9)
+    );
+
+  box-shadow:
+    0 0 20px rgba(130, 40, 255, 0.25);
 }
+
+/* SECTIONS */
 
 section {
   width: min(1050px, calc(100% - 28px));
@@ -143,6 +243,9 @@ section {
   text-align: center;
   font-size: 35px;
   margin: 0 0 10px;
+
+  text-shadow:
+    0 0 20px rgba(130, 40, 255, 0.2);
 }
 
 .sub {
@@ -152,6 +255,8 @@ section {
   margin: 0 auto 30px;
 }
 
+/* CARDS */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -160,20 +265,29 @@ section {
 
 .card {
   padding: 25px;
-  border: 1px solid #1e1e1e;
+
+  border: 1px solid rgba(130, 70, 200, 0.16);
   border-radius: 22px;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.055),
-    rgba(255, 255, 255, 0.015)
-  );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(110, 40, 170, 0.07),
+      rgba(255, 255, 255, 0.015)
+    );
+
   min-height: 170px;
+
   transition: 0.25s;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: #373737;
+
+  border-color: rgba(170, 100, 255, 0.3);
+
+  box-shadow:
+    0 0 30px rgba(120, 30, 220, 0.08);
 }
 
 .emoji {
@@ -191,17 +305,33 @@ section {
   margin: 0;
 }
 
+/* LETTER */
+
 .letter {
   max-width: 800px;
   margin: auto;
+
   padding: 32px;
-  border: 1px solid #1f1f1f;
+
+  border: 1px solid rgba(130, 70, 200, 0.18);
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.035);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(100, 30, 160, 0.06),
+      rgba(255, 255, 255, 0.025)
+    );
+
   font-size: 18px;
   line-height: 1.85;
   color: #ddd;
+
+  box-shadow:
+    inset 0 0 35px rgba(100, 20, 160, 0.03);
 }
+
+/* SECRET */
 
 .secret {
   text-align: center;
@@ -209,13 +339,25 @@ section {
 
 .secret-box {
   display: none;
+
   max-width: 720px;
   margin: 28px auto 0;
   padding: 28px;
-  border: 1px solid #252525;
+
+  border: 1px solid rgba(150, 80, 255, 0.2);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.05);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(100, 30, 160, 0.08),
+      rgba(255, 255, 255, 0.04)
+    );
+
   animation: pop 0.45s ease;
+
+  box-shadow:
+    0 0 35px rgba(120, 30, 220, 0.08);
 }
 
 @keyframes pop {
@@ -229,6 +371,8 @@ section {
     transform: scale(1);
   }
 }
+
+/* FOOTER */
 
 footer {
   text-align: center;
@@ -247,24 +391,36 @@ footer {
   }
 }
 
+/* CONFETTI */
+
 .confetti {
   position: fixed;
   top: -20px;
+
   width: 9px;
   height: 14px;
+
   z-index: 999;
+
   pointer-events: none;
+
   animation: fall linear forwards;
 }
 
 @keyframes fall {
   to {
-    transform: translateY(110vh) rotate(720deg);
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
     opacity: 0;
   }
 }
 
+/* MOBILE */
+
 @media (max-width: 800px) {
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -276,37 +432,69 @@ footer {
   .letter {
     font-size: 16px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- JJK-INSPIRED BACKGROUND GLOW -->
+<div class="cursed-glow"></div>
+
+<!-- HERO -->
+
 <header class="hero">
+
   <div class="hero-card">
 
-    <div class="kicker">A secret birthday page for</div>
+    <div class="kicker">
+      A secret birthday page for
+    </div>
 
-    <h1>Jaivardhan Singh</h1>
+    <h1>
+      Jaivardhan Singh
+    </h1>
 
-    <div class="nick">AKA BANDARUU 🖤</div>
+    <div class="nick">
+      AKA BANDARUU 🖤
+    </div>
 
     <div class="line"></div>
 
-    <p class="typing" id="typing"></p>
+    <p
+      class="typing"
+      id="typing">
+    </p>
 
     <div class="buttons">
-      <button class="btn" onclick="party()">🎉 Start the birthday</button>
-      <a class="btn" href="#letter">💌 Read your message</a>
+
+      <button
+        class="btn"
+        onclick="party()">
+        🎉 Start the birthday
+      </button>
+
+      <a
+        class="btn"
+        href="#letter">
+        💌 Read your message
+      </a>
+
     </div>
 
   </div>
+
 </header>
 
 
+<!-- WHY HE IS GOATED -->
+
 <section>
 
-  <h2 class="title">Why Bandaruu is GOATED</h2>
+  <h2 class="title">
+    Why Bandaruu is GOATED
+  </h2>
 
   <p class="sub">
     A completely serious scientific investigation into why my online best friend
@@ -316,30 +504,56 @@ footer {
   <div class="grid">
 
     <div class="card">
-      <div class="emoji">😂</div>
-      <h3>Certified menace</h3>
+
+      <div class="emoji">
+        😂
+      </div>
+
+      <h3>
+        Certified menace
+      </h3>
+
       <p>
         You somehow turn boring conversations into pure happiness.
         Honestly amazinggg and annoyinggg 😝.
       </p>
+
     </div>
 
+
     <div class="card">
-      <div class="emoji">💖</div>
-      <h3>Best-friend energy</h3>
+
+      <div class="emoji">
+        💖
+      </div>
+
+      <h3>
+        Best-friend energy
+      </h3>
+
       <p>
         We're online best friends, but that doesn't make the friendship
         any less real.
       </p>
+
     </div>
 
+
     <div class="card">
-      <div class="emoji">😝</div>
-      <h3>One of the real ones</h3>
+
+      <div class="emoji">
+        😝
+      </div>
+
+      <h3>
+        One of the real ones
+      </h3>
+
       <p>
         Random talks, jokes, gaming, and memories —
         you're genuinely appreciated.
       </p>
+
     </div>
 
   </div>
@@ -347,19 +561,25 @@ footer {
 </section>
 
 
+<!-- BIRTHDAY MESSAGE -->
+
 <section id="letter">
 
-  <h2 class="title">A message for Bandaruu 💖</h2>
+  <h2 class="title">
+    A message for Bandaruu 💖
+  </h2>
 
   <div class="letter">
 
     <p>
-      Happy Birthday, <strong>Jaivardhan (Bandaruu)</strong> 🖤🎂
+      Happy Birthday,
+      <strong>Jaivardhan (Bandaruu)</strong> 🖤🎂
     </p>
 
     <p>
       I could've just sent a normal “happy birthday” message,
-      but where's the fun in that? 😭 So I made you an entire website instead heheee.
+      but where's the fun in that? 😭
+      So I made you an entire website instead heheee.
     </p>
 
     <p>
@@ -379,7 +599,8 @@ footer {
     </p>
 
     <p>
-      Stay funny. Be yourself.
+      Stay funny.
+      Be yourself.
       Keep being the absolute BANDARUU you are,
       hehehe, my Bandarr 🙉🖤
     </p>
@@ -394,19 +615,32 @@ footer {
 </section>
 
 
+<!-- SECRET -->
+
 <section class="secret">
 
-  <h2 class="title">One last thing... 👀</h2>
+  <h2 class="title">
+    One last thing... 👀
+  </h2>
 
   <p class="sub">
     There may or may not be a secret message hidden here.
   </p>
 
-  <button class="btn" onclick="reveal()">🔐 Open the secret</button>
+  <button
+    class="btn"
+    onclick="reveal()">
+    🔐 Open the secret
+  </button>
 
-  <div class="secret-box" id="secretBox">
 
-    <h2>YOU FOUND IT 😭🖤</h2>
+  <div
+    class="secret-box"
+    id="secretBox">
+
+    <h2>
+      YOU FOUND IT 😭🖤
+    </h2>
 
     <p>
       Thanks for being you, Bandaruu.
@@ -440,34 +674,52 @@ footer {
 
 <script>
 
+/* TYPING EFFECT */
+
 const msg =
   'Today the main character gets a birthday episode 😝. Happy Birthday, Bandaruu 😘🖤';
 
 let i = 0;
 
 function type() {
+
   if (i < msg.length) {
+
     document.getElementById('typing').textContent += msg[i++];
+
     setTimeout(type, 35);
   }
+
 }
 
 type();
 
 
+/* SECRET MESSAGE */
+
 function reveal() {
+
   document.getElementById('secretBox').style.display = 'block';
+
   confetti(80);
+
 }
 
 
+/* PARTY BUTTON */
+
 function party() {
+
   confetti(140);
+
   document.getElementById('letter').scrollIntoView({
     behavior: 'smooth'
   });
+
 }
 
+
+/* CONFETTI */
 
 function confetti(n) {
 
@@ -477,17 +729,32 @@ function confetti(n) {
 
     x.className = 'confetti';
 
-    x.style.left = Math.random() * 100 + 'vw';
+    x.style.left =
+      Math.random() * 100 + 'vw';
 
     x.style.animationDuration =
       2 + Math.random() * 3 + 's';
 
+    /* JJK-ish purple, blue and white */
+
+    const colors = [
+      '#b66cff',
+      '#7d8cff',
+      '#ffffff',
+      '#7777ff',
+      '#d8a4ff'
+    ];
+
     x.style.background =
-      Math.random() > 0.5 ? '#fff' : '#777';
+      colors[Math.floor(Math.random() * colors.length)];
 
     document.body.appendChild(x);
 
-    setTimeout(() => x.remove(), 5500);
+    setTimeout(
+      () => x.remove(),
+      5500
+    );
+
   }
 
 }
